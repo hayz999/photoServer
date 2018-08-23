@@ -1,5 +1,4 @@
 const express = require('express')
-const port = parseInt(process.env.PORT || 5000)
 const knex = require('./connection')
 const bodyParser = require("body-parser")
 const photos = require('./routes/routes')
@@ -27,6 +26,6 @@ app.use((err, req, res, next) => {
   })
 })
 
-app.listen(port)
+app.listen(process.env.PORT || 5000)
   .on('error', console.error.bind(console))
   .on('listening', console.log.bind(console, 'Listening on ' + port))
